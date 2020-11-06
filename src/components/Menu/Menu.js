@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
 import { Menu as AntdMenu } from 'antd';
 import { AppstoreOutlined } from '@ant-design/icons';
@@ -10,30 +10,30 @@ const { SubMenu, Item : MenuItem } = AntdMenu;
 const sampleData = [
   {
     icon: <AppstoreOutlined/>,
-    title: 'Introduction', // Menu.Item {value} | SubMenu title(props)
-    key: '/introduction',
+    title: 'Sample', // Menu.Item {value} | SubMenu title(props)
+    key: '/sample',
     subMenu: [] // 재귀 { key, icon, name, subMenu }
   },
   {
     icon: <AppstoreOutlined/>,
-    title: 'Professor',
-    key: '/introduction/professor',
+    title: 'Sample2',
+    key: 'Sample2',
     subMenu: [
       {
         icon: <AppstoreOutlined/>,
         title: '112',
-        key: '/professor/112',
+        key: '/sample2/112',
         subMenu: []
       },
       {
         icon: <AppstoreOutlined/>,
         title: '113',
-        key: '/professor/113',
+        key: '/sample2/113',
         subMenu: [
           {
             icon: <AppstoreOutlined/>,
             title: '114',
-            key: '/professor/113/114',
+            key: '/sample2/113/114',
             subMenu: []
           },
         ]
@@ -48,7 +48,7 @@ const Menu = (props) => {
     mode = 'vertical', // vertical | horizontal | inline
     style,
     className,
-    list,
+    list = sampleData,
   } = props;
 
   const lsSelectedMenu = getLocalStorage('selectedMenu');
