@@ -11,10 +11,10 @@ import Login from "./pages/Login/Login";
 import Introduction from "./pages/Introduction";
 import Professor from "./pages/Professor";
 import Member from "./pages/Member";
-import Publication from "./pages/Publication";
+import Publication from "./pages/Publications";
 import Lecture from "./pages/Lecture";
 import Community from "./pages/Community";
-import Layout from "./components/Layout/Layout";
+import Layout from "./components/Layout";
 
 const App = (props) => {
 
@@ -42,7 +42,7 @@ const App = (props) => {
                    <Route path={'/introduction'} component={Auth(Introduction, null)}/>
                    <Route path={'/professor'} component={Auth(Professor, null)}/>
                    <Route path={'/member'} component={Auth(Member, null)}/>
-                   <Route path={'/publication'} component={Auth(Publication, null)}/>
+                   <Route path={'/publications'} component={Auth(Publication, null)}/>
                    <Route path={'/lecture'} component={Auth(Lecture, null)}/>
                    <Route path={'/community'} component={Auth(Community, null)}/>
 
