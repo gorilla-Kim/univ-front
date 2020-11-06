@@ -53,6 +53,7 @@ const Footer = (props) => {
 
 const StyledAntdFooter = styled(AntdLayout.Footer)`
   //background: darkgrey;
+  padding: 0;
 `;
 
 const StyledContainer = styled(Container)`

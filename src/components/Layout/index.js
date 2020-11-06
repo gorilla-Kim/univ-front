@@ -6,6 +6,7 @@ import Sider from "./Sider";
 import Footer from "./Footer";
 import Content from "./Content";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
+import Container from "./Container";
 
 const Layout = (props) => {
 
@@ -16,36 +17,31 @@ const Layout = (props) => {
   // rwd breakpoint 3항 연산
 
   return (
-    <LayoutWrapper>
+    <AntdLayoutWrapper>
       <Header/>
-      <StyledLayout row>
-        <Breadcrumb/>
-      </StyledLayout>
-      <StyledLayout>
-        <Sider/>
-        <Content>
-          {children}
-        </Content>
-      </StyledLayout>
+      <AntdLayout style={{backgroundColor: '#f1f1f1', ...row}}>
+        <Container>
+          <Breadcrumb/>
+        </Container>
+      </AntdLayout>
+      <AntdLayout style={{width: '1200px', margin: '0 auto'}}>
+          <Sider/>
+          <Content>
+            {children}
+          </Content>
+      </AntdLayout>
       <Footer/>
-    </LayoutWrapper>
+    </AntdLayoutWrapper>
   )
 };
 
-const LayoutWrapper = styled(AntdLayout)`
+const AntdLayoutWrapper = styled(AntdLayout)`
   min-height: 100vh;
 `;
 
-const StyledLayout = styled(AntdLayout)`
-  width: 1200px;
-  margin: 0 auto;
-  ${props => props.row && css`
-      flex: 0 0 0%;
-  `}
-`;
+const row = {
+  flex: '0 0 0%'
+}
 
-// const StyledBreadcrumb = styled(Breadcrumb)`
-//
-// `;
 
 export default Layout;
