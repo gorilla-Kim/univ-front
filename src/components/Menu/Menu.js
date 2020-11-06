@@ -1,39 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from "styled-components";
 import { Menu as AntdMenu } from 'antd';
 import { AppstoreOutlined } from '@ant-design/icons';
 import { navigate } from "../../helper/historyHelper";
 import { getLocalStorage, setLocalStorage } from "../../helper/localStorageHelper";
 
-const { SubMenu } = AntdMenu;
+const { SubMenu, Item : MenuItem } = AntdMenu;
 
 const sampleData = [
   {
-    key: '/introduction',
     icon: <AppstoreOutlined/>,
-    title: 'Introduction', // Menu.Item {value} | SubMenu title(props)
+    title: 'Sample', // Menu.Item {value} | SubMenu title(props)
+    key: '/sample',
     subMenu: [] // 재귀 { key, icon, name, subMenu }
   },
   {
-    key: '/introduction/professor',
     icon: <AppstoreOutlined/>,
-    title: 'Professor',
+    title: 'Sample2',
+    key: 'Sample2',
     subMenu: [
       {
-        key: '/professor/112',
         icon: <AppstoreOutlined/>,
         title: '112',
+        key: '/sample2/112',
         subMenu: []
       },
       {
-        key: '/professor/113',
         icon: <AppstoreOutlined/>,
         title: '113',
+        key: '/sample2/113',
         subMenu: [
           {
-            key: '/professor/113/114',
             icon: <AppstoreOutlined/>,
             title: '114',
+            key: '/sample2/113/114',
             subMenu: []
           },
         ]
@@ -45,16 +45,14 @@ const sampleData = [
 const Menu = (props) => {
   const {
     triggerOpen = false,
-    mode = 'horizontal', // vertical | horizontal | inline
+    mode = 'vertical', // vertical | horizontal | inline
     style,
     className,
-    list = sampleData
+    list = sampleData,
   } = props;
 
   const lsSelectedMenu = getLocalStorage('selectedMenu');
   const [defaultSelectedKeys, setDefaultSelectedKeys] = useState(lsSelectedMenu? lsSelectedMenu : []);
-
-  console.log('@@ lsSelectedMenu', lsSelectedMenu, 'defaultSelectedKeys', );
 
   function recursivePrint(list) {
     return list?.map(item =>
@@ -64,7 +62,7 @@ const Menu = (props) => {
             ? <SubMenu key={item.key} icon={item.icon} title={item.title}>
               {recursivePrint(item.subMenu)}
             </SubMenu>
-            : <AntdMenu.Item key={item.key} icon={item.icon}>{item.title}</AntdMenu.Item>
+            : <MenuItem key={item.key} icon={item.icon}>{item.title}</MenuItem>
         }
       </>
     )
@@ -75,7 +73,7 @@ const Menu = (props) => {
   }
 
   return (
-    <AntdMenu
+    <StyledAntdMenu
       // defaultOpenKeys={triggerOpen ? defaultSelectedKeys : undefined}
       // defaultSelectedKeys={triggerOpen ? defaultSelectedKeys : undefined} //{['1']} unit depth menu
       // defaultOpenKeys={'/professor/113/114'} //{['sub1']} sub menu
@@ -89,11 +87,12 @@ const Menu = (props) => {
       className={className}
       style={style}>
       {recursivePrint(list)}
-    </AntdMenu>
+    </StyledAntdMenu>
   )
 };
 
-const Wrapper = styled.div`
+const StyledAntdMenu = styled(AntdMenu)`
+
 `;
 
 export default Menu;

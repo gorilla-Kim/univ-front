@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from "styled-components";
-import {Layout as AntdLayout} from 'antd';
+import { Layout as AntdLayout } from 'antd';
 
 const Content = (props) => {
-
+  const {
+    children
+  } = props;
   return (
     <Wrapper>
-      Content
+      {children}
     </Wrapper>
   )
 };

@@ -1,10 +1,11 @@
 import React from 'react';
 import styled, { css } from "styled-components";
-import { Breadcrumb, Layout as AntdLayout } from 'antd';
+import { Layout as AntdLayout } from 'antd';
 import Header from "./Header";
 import Sider from "./Sider";
 import Footer from "./Footer";
 import Content from "./Content";
+import Breadcrumb from "../Breadcrumb/Breadcrumb";
 
 const Layout = (props) => {
 
@@ -18,16 +19,7 @@ const Layout = (props) => {
     <LayoutWrapper>
       <Header/>
       <StyledLayout row>
-        <Breadcrumb>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>
-            <a href="">Application Center</a>
-          </Breadcrumb.Item>
-          <Breadcrumb.Item>
-            <a href="">Application List</a>
-          </Breadcrumb.Item>
-          <Breadcrumb.Item>An Application</Breadcrumb.Item>
-        </Breadcrumb>
+        <Breadcrumb/>
       </StyledLayout>
       <StyledLayout>
         <Sider/>
