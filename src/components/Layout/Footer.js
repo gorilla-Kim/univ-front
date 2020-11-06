@@ -1,17 +1,20 @@
 import React from 'react';
 import styled from "styled-components";
 import {Layout as AntdLayout} from 'antd';
+import Container from "./Container";
 
 const Footer = (props) => {
 
   return (
-    <Wrapper>
-      Footer
-    </Wrapper>
+    <StyledAntdFooter>
+      <Container>
+        Footer내용
+      </Container>
+    </StyledAntdFooter>
   )
 };
 
-const Wrapper = styled(AntdLayout.Footer)`
+const StyledAntdFooter = styled(AntdLayout.Footer)`
   background: darkgrey;
 `;
 

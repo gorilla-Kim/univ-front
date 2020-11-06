@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {Layout as AntdLayout} from 'antd';
 import Images from '../../assets/image'
 import Menu from "../Menu/Menu";
+import Container from "./Container";
 
 const navigatorList = [
   {
@@ -122,17 +123,22 @@ const navigatorList = [
 const Header = (props) => {
 
   return (
-    <Wrapper>
-      <Menu list={navigatorList} mode={'horizontal'}/>
-    </Wrapper>
+    <StyledAntdHeader>
+      <Container>
+        <StyledMenu list={navigatorList} mode={'horizontal'}/>
+      </Container>
+    </StyledAntdHeader>
   )
 };
 
-const Wrapper = styled(AntdLayout.Header)`
+const StyledAntdHeader = styled(AntdLayout.Header)`
   background-image:url(${Images.headerCover});
   background-position:50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
 `;
 
+const StyledMenu = styled(Menu)`
+  background:red;
+`;
 export default Header;
