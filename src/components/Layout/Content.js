@@ -14,7 +14,6 @@ const Content = (props) => {
 };
 
 const Wrapper = styled(AntdLayout.Content)`
-  background: grey;
   padding-left: 30px!important;
 `;
 

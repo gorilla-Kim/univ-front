@@ -19,12 +19,12 @@ const Layout = (props) => {
   return (
     <AntdLayoutWrapper>
       <Header/>
-      <AntdLayout style={{backgroundColor: '#f1f1f1', ...row}}>
+      <AntdLayout style={{ borderBottom: '1px solid #eaeaea', backgroundColor: '#f1f1f1', ...row}}>
         <Container>
           <Breadcrumb/>
         </Container>
       </AntdLayout>
-      <AntdLayout style={{width: '1200px', margin: '0 auto'}}>
+      <AntdLayout style={{width: '1200px', margin: '0 auto', padding: '60px 0'}}>
           <Sider/>
           <Content>
             {children}
@@ -37,6 +37,10 @@ const Layout = (props) => {
 
 const AntdLayoutWrapper = styled(AntdLayout)`
   min-height: 100vh;
+  background:#fff;
+  > section, footer {
+    background:#fff;
+  }
 `;
 
 const row = {

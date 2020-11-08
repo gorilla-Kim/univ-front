@@ -58,7 +58,9 @@ const Sider = (props) => {
 };
 
 const Wrapper = styled(AntdLayout.Sider)`
-  border-right: initial;
+  background: transparent;
+  border-left: 1px solid #f0f0f0;
+  border-bottom:1px solid #f0f0f0;
   .ant-menu-sub {
     > li{
       padding-top: 10px;
@@ -77,19 +79,19 @@ const Wrapper = styled(AntdLayout.Sider)`
     padding-bottom: 0!important;
     height: 55px!important;
     line-height: 55px!important;
-    font-size: 14px!important;
+    font-size: 16px;
     font-weight: 400;
     color:#484848;
-    border-bottom:1px solid #f1f1f1;
-    &:first-child {
-      border-top:1px solid #f1f1f1;
-    }
     &:hover {
       color:#1890ff;
     }
-    span {
-      font-size: 14px!important;
-    }
+  }
+  .ant-menu-submenu-title{
+    border-bottom:1px solid #f0f0f0;
+  }
+  .ant-menu-sub{
+    box-shadow: inset 0 6px 6px -7px rgba(0,0,0, .1);
+    background:#f0f0f0;
   }
 `;
 

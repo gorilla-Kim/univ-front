@@ -14,8 +14,6 @@ const Lecture = (props) => {
     appCreators.updateState({ currentViewKey: COMMON_CONST.WHOLE_MENU_KEY.LECTURE, })
   }, [])
 
-  const match = useRouteMatch();
-
   return (
     <Switch>
       <Route path={`${match.path}/:id`} component={Detail}/>
