@@ -1,3 +1,8 @@
+const initialState = {
+    currentViewKey: '',
+    toastMessage: ''
+}
+
 export const Action = {
     Types: {
         UPDATE_STATE: '@APP/UPDATE_STATE',
@@ -18,11 +23,6 @@ export const Action = {
         }),
     }
 };
-
-
-const initialState = {
-    toastMessage: ''
-}
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {

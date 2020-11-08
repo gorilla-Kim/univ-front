@@ -54,11 +54,15 @@ const Menu = (props) => {
   const lsSelectedMenu = getLocalStorage('selectedMenu');
   const [defaultSelectedKeys, setDefaultSelectedKeys] = useState(lsSelectedMenu? lsSelectedMenu : []);
 
+  if(!list){
+    return false;
+  }
+
   function recursivePrint(list) {
     return list?.map(item =>
       <>
         {
-          item.subMenu.length > 0
+          item?.subMenu?.length > 0
             ? <SubMenu key={item.key} icon={item.icon} title={item.title}>
               {recursivePrint(item.subMenu)}
             </SubMenu>
