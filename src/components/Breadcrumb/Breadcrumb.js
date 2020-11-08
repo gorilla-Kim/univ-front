@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import { Breadcrumb as AntdBreadcrumb } from 'antd';
 import { GoLocation } from "react-icons/all";
+import { useSelector } from "react-redux";
 
 const { Item: BreadcrumbItem } = AntdBreadcrumb;
 
@@ -25,13 +26,19 @@ const Breadcrumb = (props) => {
     list = sampleData,
   } = props;
 
+  const {breadcrumbList} = useSelector(state => state.app);
+
+  if(!list){
+    return false;
+  }
+
   return (
     <StyledAntdBreadcrumb separator={''}>
       <BreadcrumbItem>
         <GoLocation/>
       </BreadcrumbItem>
       {
-        list.map(item => <BreadcrumbItem key={item.to}>
+        breadcrumbList?.map(item => <BreadcrumbItem key={item.to}>
             {
               item.to.length > 0
                 ? <a href={item.to}>{item.title}</a>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from "styled-components";
-import {Switch, Route} from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Alumni from "./Alumni";
 import Current from "./Current";
 import { appCreators } from "../../redux/actionCreators";
@@ -12,10 +12,12 @@ const Member = (props) => {
     appCreators.updateState({currentViewKey: COMMON_CONST.WHOLE_MENU_KEY.MEMBER})
   }, [])
 
+  const match = useRouteMatch();
+
   return (
     <Switch>
-      <Route to={'/alumni'} component={Alumni}/>
-      <Route to={'/current'} component={Current}/>
+      <Route path={`${match.path}/alumni`} component={Alumni}/>
+      <Route path={`${match.path}/current`} component={Current}/>
     </Switch>
   )
 };

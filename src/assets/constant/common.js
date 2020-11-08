@@ -3,7 +3,7 @@ const COMMON_CONST = {
     INTRODUCTION_RESEARCH: 'Introduction & Research',
     PROFESSOR: 'Professor',
     MEMBER: 'Member',
-    PUBLICATION:'Publication',
+    PUBLICATION: 'Publication',
     LECTURE: 'Lecture',
     COMMUNITY: 'Community',
   },
@@ -49,7 +49,7 @@ const COMMON_CONST = {
       subMenu: [
         {
           icon: '',
-          title: 'Member',
+          title: 'Current Member',
           key: '/member/current',
           subMenu: []
         },
@@ -65,8 +65,15 @@ const COMMON_CONST = {
     {
       icon: '',
       title: 'Publication',
-      key: '/publication',
-      subMenu: []
+      key: 'Publication',
+      subMenu: [
+        {
+          icon: '',
+          title: 'Publication',
+          key: '/publication',
+          subMenu: []
+        }
+      ]
     },
     //5
     {
@@ -120,7 +127,7 @@ const COMMON_CONST = {
         },
       ]
     },
-  ]
+  ],
 }
 
 export default COMMON_CONST;

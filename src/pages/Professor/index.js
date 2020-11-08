@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from "styled-components";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import List from "./List";
 import Detail from "./Detail";
 import { appCreators } from "../../redux/actionCreators";
@@ -9,13 +9,15 @@ import COMMON_CONST from "../../assets/constant/common";
 const Professor = (props) => {
 
   useEffect(() => {
-    appCreators.updateState({currentViewKey: COMMON_CONST.WHOLE_MENU_KEY.PROFESSOR})
+    appCreators.updateState({ currentViewKey: COMMON_CONST.WHOLE_MENU_KEY.PROFESSOR })
   }, [])
+
+  const match = useRouteMatch();
 
   return (
     <Switch>
-      <Route to={'/'} component={List}/>
-      <Route to={'/:id'} component={Detail}/>
+      <Route path={`${match.path}/:id`} component={Detail}/>
+      <Route exact path={`${match.path}/`} component={List}/>
     </Switch>
   )
 };

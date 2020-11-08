@@ -1,5 +1,6 @@
 const initialState = {
     currentViewKey: '',
+    breadcrumbList: [],
     toastMessage: ''
 }
 
