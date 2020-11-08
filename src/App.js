@@ -11,7 +11,7 @@ import Login from "./pages/Login/Login";
 import Introduction from "./pages/Introduction";
 import Professor from "./pages/Professor";
 import Member from "./pages/Member";
-import Publication from "./pages/Publications";
+import Publication from "./pages/Publication";
 import Lecture from "./pages/Lecture";
 import Community from "./pages/Community";
 import Layout from "./components/Layout";
@@ -20,10 +20,6 @@ const App = (props) => {
 
     const {toastMessage} = useSelector(state => state.app);
     const {isLoggedIn} = useSelector(state => state.user);
-
-    useEffect(() => {
-
-    }, [])
 
     return (
         <Wrapper>
@@ -34,19 +30,20 @@ const App = (props) => {
 
            <Layout>
                <Switch>
-                   <Route exact path={'/'} component={Auth(Home, null)}/>
+                   <Route exact path={'/'} component={Home}/>
 
-                   {/*<Route path={'/login'} component={Auth(Login, null)}/>*/}
-                   {/*<Route path={'/register'} component={Auth(Register, null)}/>*/}
+                   {/*<Route path={'/login'} component={Login*/}
+                   {/*<Route path={'/register'} component={Register*/}
 
-                   <Route path={'/introduction'} component={Auth(Introduction, null)}/>
-                   <Route path={'/professor'} component={Auth(Professor, null)}/>
-                   <Route path={'/member'} component={Auth(Member, null)}/>
-                   <Route path={'/publications'} component={Auth(Publication, null)}/>
-                   <Route path={'/lecture'} component={Auth(Lecture, null)}/>
-                   <Route path={'/community'} component={Auth(Community, null)}/>
+                   <Route path={'/introduction'} component={Introduction}/>
+                   <Route path={'/professor'} component={Professor}/>
+                   <Route path={'/member'} component={Member}/>
+                   <Route path={'/publication'} component={Publication}/>
 
-                   <Route path={'/error/404'} component={Auth(Page404, null)}/>
+                   <Route path={'/lecture'} component={Lecture}/>
+                   <Route path={'/community'} component={Community}/>
+
+                   <Route path={'/error/404'} component={Page404}/>
                    <Redirect to={'/error/404'}/>
                </Switch>
            </Layout>
