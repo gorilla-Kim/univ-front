@@ -8,8 +8,10 @@ import COMMON_CONST from "../../assets/constant/common";
 
 const Lecture = (props) => {
 
+  const match = useRouteMatch();
+
   useEffect(() => {
-    appCreators.updateState({currentViewKey: COMMON_CONST.WHOLE_MENU_KEY.LECTURE})
+    appCreators.updateState({ currentViewKey: COMMON_CONST.WHOLE_MENU_KEY.LECTURE, })
   }, [])
 
   const match = useRouteMatch();

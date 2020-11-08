@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 import { Menu as AntdMenu } from 'antd';
 import { AppstoreOutlined } from '@ant-design/icons';
@@ -44,15 +44,18 @@ const sampleData = [
 
 const Menu = (props) => {
   const {
-    triggerOpen = false,
+    openFistKey = false,
     mode = 'vertical', // vertical | horizontal | inline
     style,
     className,
     list = sampleData,
   } = props;
 
-  const lsSelectedMenu = getLocalStorage('selectedMenu');
-  const [defaultSelectedKeys, setDefaultSelectedKeys] = useState(lsSelectedMenu? lsSelectedMenu : []);
+  const [defaultOpenKeys, setDefaultOpenKeys] = useState([]);
+
+  useEffect(()=>{
+    openFistKey ? setDefaultOpenKeys([list[0]?.key]) : setDefaultOpenKeys([])
+  },[list])
 
   if(!list){
     return false;
@@ -78,15 +81,8 @@ const Menu = (props) => {
 
   return (
     <StyledAntdMenu
-      // defaultOpenKeys={triggerOpen ? defaultSelectedKeys : undefined}
-      // defaultSelectedKeys={triggerOpen ? defaultSelectedKeys : undefined} //{['1']} unit depth menu
-      // defaultOpenKeys={'/professor/113/114'} //{['sub1']} sub menu
-      // defaultOpenKeys={triggerOpen ? defaultOpenKeys : undefined} //{['sub1']} sub menu
-      onSelect={(e) => {
-        console.log('@@ onSelect', e);
-        setLocalStorage('selectedMenu', e.key)
-        navigate(e.key)
-      }}
+      defaultOpenKeys={defaultOpenKeys}
+      onSelect={(e) => navigate(e.key)}
       mode={mode}
       className={className}
       style={style}>
