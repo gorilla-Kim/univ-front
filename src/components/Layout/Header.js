@@ -124,21 +124,53 @@ const Header = (props) => {
 
   return (
     <StyledAntdHeader>
-      <Container>
+      <NavWrap>
         <StyledMenu list={navigatorList} mode={'horizontal'}/>
-      </Container>
+      </NavWrap>
     </StyledAntdHeader>
   )
 };
 
 const StyledAntdHeader = styled(AntdLayout.Header)`
+  position: relative;
+  height: 300px;
   background-image:url(${Images.headerCover});
   background-position:50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
 `;
 
+const StyledContainer = styled(Container)`
+  position: relative;
+  height: 100%;
+  
+`;
+const NavWrap = styled.div`
+ position: absolute;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background:rgba(0,0,0,.43); 
+`;
+
 const StyledMenu = styled(Menu)`
-  background:red;
+ width: 1320px;
+ margin: 0 auto;
+ display: flex;
+ border-bottom: none;
+ background: transparent;
+ .ant-menu-submenu, .ant-menu-item-only-child {
+   flex-grow: 1;
+   text-align: center;
+   font-size: 19px;
+   color:#fff;
+   .ant-menu-item{ // dropdown 
+      height: 44px;
+      padding: 5px 0;
+      text-align: center;
+      line-height: 44px;
+      font-size: 17px;
+   }
+ }
 `;
 export default Header;
