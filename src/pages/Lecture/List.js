@@ -5,7 +5,7 @@ const List = (props) => {
 
     return (
         <Wrapper>
-           List
+           Lecture List
         </Wrapper>
     )
 };

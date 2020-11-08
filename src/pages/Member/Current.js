@@ -5,7 +5,7 @@ const Current = (props) => {
 
     return (
         <Wrapper>
-           Current
+           Current Member
         </Wrapper>
     )
 };

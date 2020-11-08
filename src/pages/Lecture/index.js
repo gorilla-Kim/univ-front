@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from "styled-components";
-import {Switch, Route} from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Detail from "./Detail";
 import List from "./List";
 import { appCreators } from "../../redux/actionCreators";
@@ -12,10 +12,12 @@ const Lecture = (props) => {
     appCreators.updateState({currentViewKey: COMMON_CONST.WHOLE_MENU_KEY.LECTURE})
   }, [])
 
+  const match = useRouteMatch();
+
   return (
     <Switch>
-      <Route to={'/'} component={List}/>
-      <Route to={'/:id'} component={Detail}/>
+      <Route path={`${match.path}/:id`} component={Detail}/>
+      <Route exact path={`${match.path}/`} component={List}/>
     </Switch>
   )
 };

@@ -50,7 +50,7 @@ const Sider = (props) => {
   }
 
   return (
-    <Wrapper width={250}>
+    <Wrapper width={240}>
       <Head>{currentItem[0]?.title}</Head>
       <Menu mode={'inline'} list={currentItem}/>
     </Wrapper>

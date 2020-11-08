@@ -1,31 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from "styled-components";
-import {Switch, Route} from "react-router-dom";
-import BoardList from "./Board/BoardList";
-import BoardDetail from "./Board/BoardDetail";
-import BoardWrite from "./Board/BoardWrite";
-import GalleryList from "./Gallery/GalleryList";
-import GalleryDetail from "./Gallery/GalleryDetail";
-import GalleryWrite from "./Gallery/GalleryWrite";
-import NoticeList from "./Notice/NoticeList";
-import NoticeDetail from "./Notice/NoticeDetail";
-import NoticeWrite from "./Notice/NoticeWrite";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
+import Notice from "./Notice";
+import Board from "./Board";
+import Gallery from "./Gallery";
+import { appCreators } from "../../redux/actionCreators";
+import COMMON_CONST from "../../assets/constant/common";
 
 const Community = (props) => {
 
+  const match = useRouteMatch();
+
+  useEffect(()=>{
+    appCreators.updateState({
+      currentViewKey: COMMON_CONST.WHOLE_MENU_KEY.COMMUNITY,
+    })
+  },[])
+
   return (
     <Switch>
-      <Route to={'/board'} component={BoardList}/>
-      <Route to={'/board/:id'} component={BoardDetail}/>
-      <Route to={'/board/write'} component={BoardWrite}/>
-
-      <Route to={'/gallery'} component={GalleryList}/>
-      <Route to={'/gallery/:id'} component={GalleryDetail}/>
-      <Route to={'/gallery/write'} component={GalleryWrite}/>
-
-      <Route to={'/notice'} component={NoticeList}/>
-      <Route to={'/notice/:id'} component={NoticeDetail}/>
-      <Route to={'/notice/write'} component={NoticeWrite}/>
+      <Route path={`${match.path}/board`} component={Board}/>
+      <Route path={`${match.path}/gallery`} component={Gallery}/>
+      <Route path={`${match.path}/notice`} component={Notice}/>
     </Switch>
   )
 };

@@ -16,8 +16,8 @@ const Publication = (props) => {
 
   return (
     <Switch>
-      <Route exact to={'/'} component={List}/>
-      <Route to={'/:id'} component={Detail}/>
+      <Route path={`${match.path}/:id`} component={Detail}/>
+      <Route exact path={`${match.path}/`} component={List}/>
     </Switch>
   )
 };

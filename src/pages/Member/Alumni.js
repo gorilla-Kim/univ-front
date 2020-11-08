@@ -5,7 +5,7 @@ const Alumni = (props) => {
 
     return (
         <Wrapper>
-           Alumni
+           Alumni Member
         </Wrapper>
     )
 };

@@ -5,7 +5,7 @@ const Detail = (props) => {
 
     return (
         <Wrapper>
-           Detail
+           Lecture Detail
         </Wrapper>
     )
 };
